@@ -1,0 +1,53 @@
+﻿@model Project.Models.TaskItem
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container py-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm" style="background-color: #f5f7fa; border-radius: 8px;">
+                <div class="card-body p-4">
+                    <h1 class="fw-bold text-center mb-3" style="font-size: 1.5rem;">Task Details</h1>
+
+                    <hr class="mx-auto" style="width: 80%; margin: 0.5rem auto 1.5rem;" />
+
+                    <dl class="row small">
+                        <dt class="col-sm-4">Title</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Title)</dd>
+
+                        <dt class="col-sm-4">Description</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Description)</dd>
+
+                        <dt class="col-sm-4">Due Date</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.DueDate)</dd>
+
+                        <dt class="col-sm-4">Status</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Status)</dd>
+
+                        <dt class="col-sm-4">Remarks</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Remarks)</dd>
+
+                        <dt class="col-sm-4">Created On</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.CreatedOn)</dd>
+
+                        <dt class="col-sm-4">Last Updated On</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.LastUpdatedOn)</dd>
+
+                        <dt class="col-sm-4">Created By</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.CreatedBy.Name)</dd>
+
+                        <dt class="col-sm-4">Last Updated By</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.LastUpdatedBy.Name)</dd>
+                    </dl>
+
+                    <div class="d-flex justify-content-center gap-2 mt-4">
+                        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary btn-sm px-3">Edit</a>
+                        <a asp-action="Index" class="btn btn-outline-secondary btn-sm px-3">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

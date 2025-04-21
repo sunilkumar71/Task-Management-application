@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Project.Models.TaskItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Task List</h1>
+
+<div class="d-flex justify-content-between mb-3">
+    <div class="d-flex align-items-center">
+        <a asp-action="Create" class="btn btn-primary">Add New Task</a>
+    </div>
+
+    <div class="d-flex align-items-center">
+        <form asp-action="Index" method="get" class="d-flex gap-2">
+            <input type="text" name="searchString" class="form-control" placeholder="Search by ID, Title, or Name..." value="@ViewData["SearchString"]" />
+            <button type="submit" class="btn btn-outline-primary">Search</button>
+        </form>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Id)</th>
+                <th>@Html.DisplayNameFor(model => model.Title)</th>
+                <th>@Html.DisplayNameFor(model => model.Description)</th>
+                <th>@Html.DisplayNameFor(model => model.DueDate)</th>
+                <th>@Html.DisplayNameFor(model => model.Status)</th>
+                <th>@Html.DisplayNameFor(model => model.Remarks)</th>
+                <th>@Html.DisplayNameFor(model => model.CreatedOn)</th>
+                <th>@Html.DisplayNameFor(model => model.LastUpdatedOn)</th>
+                <th>@Html.DisplayNameFor(model => model.CreatedBy)</th>
+                <th>@Html.DisplayNameFor(model => model.LastUpdatedBy)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DueDate)
+                        @if (!string.Equals(item?.Status, "Completed", StringComparison.OrdinalIgnoreCase))
+                        {
+                            if (item.DueDate < DateTime.Today)
+                            {
+                                <span class="text-danger">(@((DateTime.Today - item.DueDate).Days)d Overdue)</span>
+                            }
+                            else if (item.DueDate == DateTime.Today)
+                            {
+                                <span class="text-warning">(Due today)</span>
+                            }
+                            else if (item.DueDate > DateTime.Today)
+                            {
+                                <span class="text-info">(@((item.DueDate - DateTime.Today).Days)d left)</span>
+                            }
+                        }
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Remarks)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CreatedOn)</td>
+                    <td>@Html.DisplayFor(modelItem => item.LastUpdatedOn)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CreatedBy.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.LastUpdatedBy.Name)</td>
+                    <td class="btn-group btn-group-sm">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+    @@media (max-width: 992px) {
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .btn-group-sm {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+        }
+
+            .btn-group-sm .btn {
+                flex: 1 1 auto;
+                min-width: 60px;
+            }
+    }
+
+    @@media (max-width: 576px) {
+        .table td, .table th {
+            padding: 0.3rem;
+            font-size: 0.85rem;
+        }
+
+        .btn {
+            padding: 0.25rem 0.4rem;
+            font-size: 0.75rem;
+        }
+    }
+</style>
