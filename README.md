@@ -37,7 +37,7 @@ A comprehensive Task Management System built with ASP.NET Core MVC that enables 
 | Name | NVARCHAR(MAX) | NOT NULL | Full name of user |
 
 ### Indexes Documentation
-1. **IX_Tasks_CreatedById** : lookups, joins, or filters on the CreatedById column. 
+1. **IX_Tasks_CreatedById** :Optimizes lookups, joins, or filters on the CreatedById column. 
    ```sql
    CREATE NONCLUSTERED INDEX IX_Tasks_CreatedById ON Tasks(CreatedById)
    INCLUDE (Id,Title,Name)
