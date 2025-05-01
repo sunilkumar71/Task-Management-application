@@ -35,5 +35,3 @@ Follow the steps below to properly configure, build, and run the application:
 
 ---
 
-✅ Once the application starts, it should connect to the configured database and be ready for use.
-
