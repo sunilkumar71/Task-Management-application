@@ -21,7 +21,7 @@ Follow the steps below to properly configure, build, and run the application:
 
 - Run SQL Server Management Studio (SSMS).
 - Open the Oritso.sql script file located in the extracted folder.
-- Execute the script to create the necessary database and tables.
+- Execute the SQL script to create the necessary database and tables.
 
 ---
 
