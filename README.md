@@ -13,7 +13,7 @@ Follow the steps below to properly configure, build, and run the application:
 
 ## 2. Extract Project Files
 
--Extract the ZIP file contents into a convenient location on your machine.
+- Extract the ZIP file contents into a convenient location on your machine.
 
 ---
 
