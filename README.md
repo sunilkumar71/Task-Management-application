@@ -28,7 +28,7 @@ Follow the steps below to properly configure, build, and run the application:
 ## 4. Build and Run the Project
 
 - Open the solution in **Visual Studio 2022**.
--Verify that your machine has the .NET 8.0 SDK installed.
+- Verify that your machine has the .NET 8.0 SDK installed.
 - In **Solution Explorer**, right-click the main project and select **Project**.
 - Press `F5` or click **Start Debugging** to build and launch the application.
 
