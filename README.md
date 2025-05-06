@@ -12,7 +12,8 @@ A comprehensive Task Management System built with ASP.NET Core MVC that enables 
 ## DB Design
 
 ### ER Diagram
-![ER Diagram](docs/er_diagram.png)
+![ER Diagram](https://github.com/user-attachments/assets/7c468fd1-be57-4fc5-a2e4-35c0a03cf1ac)
+
 - **Users**: Stores user authentication details
 - **TaskItems**: Core task entities with relationships to users
  ### Data Dictionary
